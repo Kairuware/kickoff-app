@@ -19,7 +19,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 14px 24px;
       border-bottom: 1px solid #1E2D4D;
       position: sticky;
       top: 0;
@@ -28,12 +28,29 @@
       z-index: 100;
     }
     .nav-logo {
-      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,230,118,0.4);
+    }
+    .nav-logo-text {
+      font-size: 20px;
       font-weight: 900;
       background: linear-gradient(135deg, #00E676, #00B0FF);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
     }
     .nav-link {
       color: #AABBdd;
@@ -43,12 +60,72 @@
       transition: color 0.2s;
     }
     .nav-link:hover { color: #00E676; }
+    .nav-download {
+      background: linear-gradient(135deg, #00E676, #00C853);
+      color: #000 !important;
+      font-weight: 700 !important;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 13px !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #EEF2FF;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: #0F1729;
+      border-bottom: 1px solid #1E2D4D;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #AABBdd;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 16px 24px;
+      border-bottom: 1px solid #1E2D4D;
+      transition: color 0.2s, background 0.2s;
+    }
+    .mobile-menu a:hover {
+      color: #00E676;
+      background: rgba(0,230,118,0.05);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
 
     /* ── Hero ── */
     .hero {
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 60px 20px 50px;
       background: radial-gradient(ellipse at top, #0D47A1 0%, #080E1E 70%);
+    }
+    .hero-logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      border: 3px solid rgba(0,230,118,0.4);
+      box-shadow: 0 0 32px rgba(0,230,118,0.2);
+      margin: 0 auto 24px;
+      display: block;
     }
     .hero-badge {
       display: inline-block;
@@ -60,7 +137,7 @@
       letter-spacing: 1px;
       padding: 6px 16px;
       border-radius: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .hero h1 {
       font-size: clamp(36px, 8vw, 72px);
@@ -73,15 +150,15 @@
       margin-bottom: 16px;
     }
     .hero p {
-      font-size: clamp(16px, 3vw, 20px);
+      font-size: clamp(15px, 3vw, 19px);
       color: #AABBdd;
-      max-width: 560px;
-      margin: 0 auto 40px;
+      max-width: 520px;
+      margin: 0 auto 36px;
       line-height: 1.6;
     }
     .hero-buttons {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -91,9 +168,9 @@
       gap: 10px;
       background: linear-gradient(135deg, #00E676, #00C853);
       color: #000;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
-      padding: 16px 32px;
+      padding: 14px 28px;
       border-radius: 14px;
       text-decoration: none;
       box-shadow: 0 8px 24px rgba(0,230,118,0.35);
@@ -109,9 +186,9 @@
       gap: 10px;
       background: rgba(255,255,255,0.05);
       color: #EEF2FF;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      padding: 16px 32px;
+      padding: 14px 28px;
       border-radius: 14px;
       text-decoration: none;
       border: 1px solid #1E2D4D;
@@ -121,25 +198,30 @@
 
     /* ── Stats ── */
     .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding: 48px 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #1E2D4D;
+      border-top: 1px solid #1E2D4D;
       border-bottom: 1px solid #1E2D4D;
+    }
+    @media (min-width: 600px) {
+      .stats { grid-template-columns: repeat(4, 1fr); }
     }
     .stat {
       text-align: center;
+      padding: 28px 16px;
+      background: #080E1E;
     }
     .stat-value {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 900;
       background: linear-gradient(135deg, #00E676, #00B0FF);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .stat-label {
-      font-size: 13px;
+      font-size: 12px;
       color: #7788AA;
       font-weight: 500;
       margin-top: 4px;
@@ -147,30 +229,30 @@
 
     /* ── Features ── */
     .features {
-      padding: 80px 20px;
+      padding: 64px 20px;
       max-width: 1100px;
       margin: 0 auto;
     }
     .section-title {
       text-align: center;
-      font-size: clamp(24px, 5vw, 40px);
+      font-size: clamp(22px, 5vw, 38px);
       font-weight: 900;
       letter-spacing: -1px;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
       background: linear-gradient(135deg, #EEF2FF, #AABBdd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
     }
     .feature-card {
       background: #161F35;
       border: 1px solid #1E2D4D;
       border-radius: 20px;
-      padding: 28px;
+      padding: 24px;
       transition: border-color 0.2s, transform 0.2s;
     }
     .feature-card:hover {
@@ -178,41 +260,36 @@
       transform: translateY(-4px);
     }
     .feature-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
+      font-size: 28px;
+      margin-bottom: 14px;
     }
     .feature-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #EEF2FF;
       margin-bottom: 8px;
     }
     .feature-desc {
-      font-size: 14px;
+      font-size: 13px;
       color: #7788AA;
       line-height: 1.6;
     }
 
     /* ── How it works ── */
     .how {
-      padding: 80px 20px;
+      padding: 64px 20px;
       background: #0F1729;
       border-top: 1px solid #1E2D4D;
       border-bottom: 1px solid #1E2D4D;
     }
     .steps {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
       max-width: 900px;
       margin: 0 auto;
     }
-    .step {
-      text-align: center;
-      flex: 1;
-      min-width: 200px;
-    }
+    .step { text-align: center; }
     .step-number {
       width: 48px;
       height: 48px;
@@ -224,10 +301,10 @@
       font-size: 20px;
       font-weight: 900;
       color: #000;
-      margin: 0 auto 16px;
+      margin: 0 auto 14px;
     }
     .step-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #EEF2FF;
       margin-bottom: 8px;
@@ -238,25 +315,50 @@
       line-height: 1.5;
     }
 
+    /* ── Install guide ── */
+    .install-guide {
+      max-width: 480px;
+      margin: 28px auto 0;
+      background: rgba(0,176,255,0.07);
+      border: 1px solid rgba(0,176,255,0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      text-align: left;
+    }
+    .install-guide-title {
+      color: #00B0FF;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .install-guide p {
+      color: #AABBdd;
+      font-size: 13px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .install-guide p:last-child { margin-bottom: 0; }
+    .install-guide strong { color: #EEF2FF; }
+
     /* ── Download ── */
     .download {
       text-align: center;
-      padding: 80px 20px;
+      padding: 64px 20px;
       background: radial-gradient(ellipse at bottom, #0D1B3E 0%, #080E1E 70%);
     }
     .download h2 {
-      font-size: clamp(28px, 6vw, 52px);
+      font-size: clamp(26px, 6vw, 48px);
       font-weight: 900;
       letter-spacing: -1px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       background: linear-gradient(135deg, #00E676, #00B0FF);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .download p {
       color: #7788AA;
-      font-size: 15px;
-      margin-bottom: 32px;
+      font-size: 14px;
+      margin-bottom: 28px;
     }
     .version-badge {
       display: inline-block;
@@ -267,13 +369,13 @@
       font-weight: 700;
       padding: 4px 12px;
       border-radius: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 32px 20px;
+      padding: 28px 20px;
       border-top: 1px solid #1E2D4D;
       color: #445577;
       font-size: 13px;
@@ -281,25 +383,66 @@
     footer a {
       color: #7788AA;
       text-decoration: none;
-      margin: 0 12px;
+      margin: 0 10px;
     }
     footer a:hover { color: #00E676; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .footer-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,230,118,0.3);
+    }
+    .footer-logo-text {
+      font-size: 16px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #00E676, #00B0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   </style>
 </head>
 <body>
 
   <!-- Nav -->
   <nav>
-    <span class="nav-logo">⚽ KickOff</span>
-    <div style="display:flex;gap:24px">
+    <a href="index.html" class="nav-logo">
+      <img src="https://raw.githubusercontent.com/Kairuware/kickoff-app/main/icon.png" alt="KickOff Logo" onerror="this.style.display='none'"/>
+      <span class="nav-logo-text">KickOff</span>
+    </a>
+    <div class="nav-links">
       <a href="#features" class="nav-link">Features</a>
-      <a href="#download" class="nav-link">Download</a>
+      <a href="#how" class="nav-link">How It Works</a>
       <a href="privacy.html" class="nav-link">Privacy</a>
+      <a href="#download" class="nav-link nav-download">⬇️ Download</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
   </nav>
 
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="toggleMenu()">⚡ Features</a>
+    <a href="#how" onclick="toggleMenu()">📖 How It Works</a>
+    <a href="privacy.html">🔒 Privacy Policy</a>
+    <a href="#download" onclick="toggleMenu()" style="color:#00E676;font-weight:700;">⬇️ Download Free</a>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
+    <img
+      src="https://raw.githubusercontent.com/Kairuware/kickoff-app/main/icon.png"
+      alt="KickOff App Icon"
+      class="hero-logo"
+      onerror="this.style.display='none'"
+    />
     <div class="hero-badge">🏆 WORLD CUP 2026 EDITION</div>
     <h1>Never Miss<br/>A Kickoff</h1>
     <p>
@@ -308,12 +451,8 @@
       wake up for every match wherever you are in the world.
     </p>
     <div class="hero-buttons">
-      <a href="#download" class="btn-primary">
-        ⬇️ Download Free
-      </a>
-      <a href="#features" class="btn-secondary">
-        Learn More
-      </a>
+      <a href="#download" class="btn-primary">⬇️ Download Free</a>
+      <a href="#features" class="btn-secondary">Learn More</a>
     </div>
   </section>
 
@@ -399,40 +538,28 @@
   </section>
 
   <!-- How it works -->
-  <section class="how">
+  <section class="how" id="how">
     <h2 class="section-title">How It Works</h2>
     <div class="steps">
       <div class="step">
         <div class="step-number">1</div>
         <div class="step-title">Install the App</div>
-        <div class="step-desc">
-          Download and install the free APK.
-          No sign-up required.
-        </div>
+        <div class="step-desc">Download and install the free APK. No sign-up required.</div>
       </div>
       <div class="step">
         <div class="step-number">2</div>
         <div class="step-title">Browse Fixtures</div>
-        <div class="step-desc">
-          All 104 WC2026 matches load instantly
-          in your local timezone.
-        </div>
+        <div class="step-desc">All 104 WC2026 matches load instantly in your local timezone.</div>
       </div>
       <div class="step">
         <div class="step-number">3</div>
         <div class="step-title">Set Your Alarms</div>
-        <div class="step-desc">
-          Tap the alarm icon on any match.
-          Choose how early you want to be notified.
-        </div>
+        <div class="step-desc">Tap the alarm icon on any match. Choose how early you want to be notified.</div>
       </div>
       <div class="step">
         <div class="step-number">4</div>
         <div class="step-title">Never Miss Kickoff</div>
-        <div class="step-desc">
-          Your alarm fires at the right time,
-          every time, wherever you are.
-        </div>
+        <div class="step-desc">Your alarm fires at the right time, every time, wherever you are.</div>
       </div>
     </div>
   </section>
@@ -441,26 +568,51 @@
   <section class="download" id="download">
     <div class="version-badge">v1.0.0 — Android</div>
     <h2>Download KickOff Free</h2>
-    <p>
-      Android 5.0+ required · No ads · No account needed · 100% free
-    </p>
-    
-     <a href="https://github.com/Kairuware/kickoff-app/releases/download/v1.0.0/KickOff-WC2026-v1.0.0.apk" class="btn-primary" style="font-size:18px;padding:18px 40px;">⬇️ Download APK (Android)</a>
-    <p style="margin-top:20px;font-size:12px;color:#445577;">
-      You may need to enable "Install from unknown sources" in your
-      Android settings to install the APK.
-    </p>
+    <p>Android 5.0+ required · No ads · No account needed · 100% free</p>
+    <a href="https://github.com/Kairuware/kickoff-app/releases/download/v1.0.0/KickOff-WC2026-v1.0.0.apk" class="btn-primary" style="font-size:17px;padding:16px 36px;">⬇️ Download APK (Android)</a>
+
+    <div class="install-guide">
+      <div class="install-guide-title">📱 Installation Guide</div>
+      <p>1. Tap <strong>Download APK</strong> above</p>
+      <p>2. If warned, tap <strong>"Download anyway"</strong> — the app is safe</p>
+      <p>3. Open the downloaded file and tap <strong>Install</strong></p>
+      <p>4. If prompted, enable <strong>"Install unknown apps"</strong> for your browser</p>
+      <p>5. Tap <strong>Install</strong> and enjoy! ⚽</p>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
+    <div class="footer-logo">
+      <img
+        src="https://raw.githubusercontent.com/Kairuware/kickoff-app/main/icon.png"
+        alt="KickOff"
+        onerror="this.style.display='none'"
+      />
+      <span class="footer-logo-text">KickOff</span>
+    </div>
     <p style="margin-bottom:12px;">
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="mailto:support@kickoffapp.com">Contact</a>
+      <a href="mailto:enzymestudio.dev@gmail.com">Contact</a>
     </p>
     <p>© 2026 KickOff · Made for football fans worldwide · By Enzyme Studio</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
 
 </body>
 </html>
